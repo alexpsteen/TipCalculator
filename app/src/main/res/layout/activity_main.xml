@@ -13,12 +13,25 @@
     android:background="#333333">
 
     <TextView
+        android:id="@+id/Title"
         android:text="Tip Calc"
         android:textColor="@android:color/white"
         android:fontFamily="cursive"
         android:textSize="65dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="130dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/TapToStart"
+        android:layout_below="@+id/Title"
+        android:text="Tap to get started"
+        android:textColor="@android:color/white"
+        android:fontFamily="cursive"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
