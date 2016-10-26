@@ -7,6 +7,252 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="com.example.alexsteen.tipcalculator.CalcActivity">
+
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/Header"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="Tip Calculator"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/Company"
+        android:gravity="center"
+        android:layout_below="@id/Header"
+        android:layout_marginTop="4dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:gravity="center"
+            android:lines="3"
+            android:textSize="15dp"
+            android:text="Alex Steen\nalexpsteen.github.io\n"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/line1"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/Company">
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:text="-----------------------------------"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="400px"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Order"
+        android:layout_below="@id/Company"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:layout_marginLeft="20dp"
+            android:textSize="16dp"
+            android:text="Date: "/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/currDate" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/Order"
+        android:id="@+id/subtotal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:text="Subtotal:"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="315px"/>
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/subtotalAmt"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/line2"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/tax">
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:text="-----------------------------------"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="400px"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/tax"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/subtotal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:text="Sales Tax:"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="300px"/>
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="200dp"
+            android:id="@+id/taxAmt"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Tip"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/line2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:text="Tip Percentage:"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="215px"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Tip"
+        android:gravity="center"
+        android:layout_marginTop="5dp">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:textSize="12dp"
+            android:typeface="monospace"
+            android:id="@+id/percent12"
+            android:text="12%"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:textSize="12dp"
+            android:layout_marginRight="25dp"
+            android:id="@+id/percent15"
+            android:text="15%"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:textSize="12dp"
+            android:layout_marginRight="25dp"
+            android:id="@+id/percent18"
+            android:text="18%"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Tip"
+        android:gravity="center"
+        android:layout_marginTop="40dp">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:textSize="12dp"
+            android:typeface="monospace"
+            android:id="@+id/percent20"
+            android:text="20%"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:typeface="monospace"
+            android:id="@+id/percentCust"
+            android:text="Custom:"/>
+        <EditText
+            android:layout_width="25dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tipCost"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/Tip">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:textSize="18dp"
+            android:text="Tip Amount:"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="50px"/>
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="200dp"
+            android:id="@+id/taxTotalField"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/grandTot"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/tipCost">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="GRAND TOTAL:"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="50px"/>
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="200dp"
+            android:id="@+id/grandTotalField"
+            />
+    </LinearLayout>
 
 </RelativeLayout>
