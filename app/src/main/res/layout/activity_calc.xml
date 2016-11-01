@@ -100,21 +100,6 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/line2"
-        android:layout_marginTop="0dp"
-        android:layout_below="@id/tax">
-        <TextView
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
-            android:typeface="monospace"
-            android:text="-----------------------------------"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="400px"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:id="@+id/tax"
         android:layout_marginTop="0dp"
@@ -132,6 +117,23 @@
             android:layout_marginRight="200dp"
             android:id="@+id/taxAmt"
             />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/line2"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/tax">
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:text="-----------------------------------"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="400px"/>
     </LinearLayout>
 
     <LinearLayout
