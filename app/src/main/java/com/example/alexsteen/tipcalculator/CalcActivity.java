@@ -16,12 +16,8 @@ import java.util.Date;
 public class CalcActivity extends AppCompatActivity {
 
     private double tip;
-
-    RadioButton p12;
-    RadioButton p15;
-    RadioButton p18;
-    RadioButton p20;
-    RadioButton pCust;
+    private double tax;
+    private double subTotal;
 
 
     @Override
@@ -41,13 +37,16 @@ public class CalcActivity extends AppCompatActivity {
         currDate.setFocusable(false);
         currDate.setText(dateFormat.format(date));
 
-        EditText subTotal = (EditText) findViewById(R.id.subtotalAmt);
-        subTotal.setText("10.00");
+        EditText subTotalField = (EditText) findViewById(R.id.subtotalAmt);
+        subTotalField.setText("10.00");
+        subTotal = 10;
 
-        EditText tax = (EditText) findViewById(R.id.taxAmt);
-        tax.setText("7.00");
+        EditText taxField = (EditText) findViewById(R.id.taxAmt);
+        taxField.setText("7.00");
+        tax = 7;
 
         tip = 15.0;
+        recalculate();
     }
 
     public void onRBClick(View v) {
@@ -56,14 +55,45 @@ public class CalcActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.percent12:
                 if (clicked) {
-                    p15.setChecked(false);
-                    p18.setChecked(false);
-                    p20.setChecked(false);
-                    pCust.setChecked(false);
                     tip = 12;
+                    recalculate();
+                }
+                break;
+            case R.id.percent15:
+                if (clicked) {
+                    tip = 15;
+                    recalculate();
+                }
+                break;
+            case R.id.percent18:
+                if (clicked) {
+                    tip = 18;
+                    recalculate();
+                }
+                break;
+            case R.id.percent20:
+                if (clicked) {
+                    tip = 20;
+                    recalculate();
+                }
+                break;
+            case R.id.percentCust:
+                if (clicked) {
+                    //TODO
                 }
                 break;
         }
 
+    }
+
+    public void recalculate() {
+        double taxAmount = ((tax * .01) * subTotal);
+        double tipAmount = ((tip * .01) * subTotal);
+
+        EditText tipAmountField = (EditText) findViewById(R.id.tipTotalField);
+        tipAmountField.setText("" + tipAmount);
+
+        EditText grandField = (EditText) findViewById(R.id.grandTotalField);
+        grandField.setText("" + (subTotal + taxAmount + tipAmount));
     }
 }
