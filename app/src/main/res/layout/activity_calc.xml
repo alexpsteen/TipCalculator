@@ -66,7 +66,7 @@
         android:layout_marginTop="10dp">
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:typeface="monospace"
             android:layout_marginLeft="20dp"
             android:textSize="16dp"
@@ -74,6 +74,9 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:background="@android:color/transparent"
+            android:textSize="14dp"
             android:id="@+id/currDate" />
     </LinearLayout>
 
@@ -88,12 +91,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:typeface="monospace"
-            android:text="Subtotal:"
+            android:text="Subtotal:                 $"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="315px"/>
+            android:layout_marginRight="12px"/>
         <EditText
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
+            android:textSize="12dp"
             android:id="@+id/subtotalAmt"
             />
     </LinearLayout>
@@ -108,12 +112,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:typeface="monospace"
-            android:text="Sales Tax:"
+            android:text="Sales Tax (%):"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="300px"/>
+            android:layout_marginRight="232px"/>
         <EditText
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
+            android:textSize="12dp"
             android:layout_marginRight="200dp"
             android:id="@+id/taxAmt"
             />
@@ -152,6 +157,13 @@
             android:layout_marginRight="215px"/>
     </LinearLayout>
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Tip"
+        android:checkedButton="@+id/percent15"
+        android:id="@+id/tipGroup">
+
     <LinearLayout
         android:layout_width="350dp"
         android:layout_height="wrap_content"
@@ -165,6 +177,7 @@
             android:textSize="12dp"
             android:typeface="monospace"
             android:id="@+id/percent12"
+            android:onClick="onRBClick"
             android:text="12%"/>
         <RadioButton
             android:layout_width="wrap_content"
@@ -173,6 +186,7 @@
             android:textSize="12dp"
             android:layout_marginRight="25dp"
             android:id="@+id/percent15"
+            android:onClick="onRBClick"
             android:text="15%"/>
         <RadioButton
             android:layout_width="wrap_content"
@@ -181,6 +195,7 @@
             android:textSize="12dp"
             android:layout_marginRight="25dp"
             android:id="@+id/percent18"
+            android:onClick="onRBClick"
             android:text="18%"/>
     </LinearLayout>
 
@@ -189,13 +204,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/Tip"
         android:gravity="center"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="10dp">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="25dp"
             android:textSize="12dp"
             android:typeface="monospace"
+            android:onClick="onRBClick"
             android:id="@+id/percent20"
             android:text="20%"/>
         <RadioButton
@@ -204,11 +220,14 @@
             android:textSize="12dp"
             android:typeface="monospace"
             android:id="@+id/percentCust"
+            android:onClick="onRBClick"
             android:text="Custom:"/>
         <EditText
             android:layout_width="25dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="35dp"
+            android:textSize="12dp" />
     </LinearLayout>
+    </RadioGroup>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -227,7 +246,8 @@
             android:layout_marginRight="50px"/>
         <EditText
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:textSize="15dp"
             android:layout_marginRight="200dp"
             android:id="@+id/taxTotalField"
             />
@@ -246,12 +266,13 @@
             android:typeface="monospace"
             android:textStyle="bold"
             android:textSize="20dp"
-            android:text="GRAND TOTAL:"
+            android:text="GRAND TOTAL:  $"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="50px"/>
+            android:layout_marginRight="5px"/>
         <EditText
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="18dp"
             android:layout_marginRight="200dp"
             android:id="@+id/grandTotalField"
             />
