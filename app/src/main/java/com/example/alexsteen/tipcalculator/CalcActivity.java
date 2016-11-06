@@ -48,10 +48,8 @@ public class CalcActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s != null) {
-                    subTotal = Double.valueOf(s.toString());
-                    recalculate();
-                }
+                subTotal = Double.valueOf(s.toString());
+                recalculate();
             }
             @Override
             public void afterTextChanged(Editable s) {}
@@ -66,10 +64,8 @@ public class CalcActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s != null) {
-                    tax = Double.valueOf(s.toString());
-                    recalculate();
-                }
+                tax = Double.valueOf(s.toString());
+                recalculate();
             }
             @Override
             public void afterTextChanged(Editable s) {}
