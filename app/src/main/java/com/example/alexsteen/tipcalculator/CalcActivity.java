@@ -48,7 +48,10 @@ public class CalcActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                subTotal = Double.valueOf(s.toString());
+                if (s != null) {
+                    subTotal = Double.valueOf(s.toString());
+                    recalculate();
+                }
             }
             @Override
             public void afterTextChanged(Editable s) {}
@@ -63,14 +66,16 @@ public class CalcActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                tax = Double.valueOf(s.toString());
-                recalculate();
+                if (s != null) {
+                    tax = Double.valueOf(s.toString());
+                    recalculate();
+                }
             }
             @Override
             public void afterTextChanged(Editable s) {}
         });
 
-        
+
         tip = 15.0;
         recalculate();
     }
@@ -113,13 +118,13 @@ public class CalcActivity extends AppCompatActivity {
     }
 
     public void recalculate() {
-        double taxAmount = ((tax * .01) * subTotal);
-        double tipAmount = ((tip * .01) * subTotal);
+        double taxAmount = ((double)((int) (tip * subTotal))) / 100;
+        double tipAmount = ((double)((int) (tip * subTotal))) / 100;
 
         EditText tipAmountField = (EditText) findViewById(R.id.tipTotalField);
         tipAmountField.setText("" + tipAmount);
 
         EditText grandField = (EditText) findViewById(R.id.grandTotalField);
-        grandField.setText("" + (subTotal + taxAmount + tipAmount));
+        grandField.setText("" + ((double)((int)((subTotal + taxAmount + tipAmount)*100))) / 100);
     }
 }
