@@ -35,11 +35,20 @@ public class CalcActivity extends AppCompatActivity {
         RadioButton p18 = (RadioButton) findViewById(R.id.percent18);
         RadioButton p20 = (RadioButton) findViewById(R.id.percent20);
         RadioButton pCust = (RadioButton) findViewById(R.id.percentCust);
+        final EditText customTip = (EditText) findViewById(R.id.customTip);
 
         EditText currDate = (EditText) findViewById(R.id.currDate);
         currDate.setClickable(false);
         currDate.setFocusable(false);
         currDate.setText(dateFormat.format(date));
+
+        EditText tipAmountField = (EditText) findViewById(R.id.tipTotalField);
+        tipAmountField.setClickable(false);
+        tipAmountField.setFocusable(false);
+
+        EditText grandTotalAmount = (EditText) findViewById(R.id.grandTotalField);
+        grandTotalAmount.setClickable(false);
+        grandTotalAmount.setFocusable(false);
 
 
         final EditText subTotalField = (EditText) findViewById(R.id.subtotalAmt);
@@ -99,7 +108,7 @@ public class CalcActivity extends AppCompatActivity {
         });
         pCust.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {tip = 12;recalculate();return false;}
+            public boolean onTouch(View v, MotionEvent event) {tip = Double.parseDouble(customTip.getText().toString());recalculate();return false;}
         });
 
         recalculate();
