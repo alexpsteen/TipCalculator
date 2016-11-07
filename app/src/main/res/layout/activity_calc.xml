@@ -157,15 +157,16 @@
             android:layout_marginRight="215px"/>
     </LinearLayout>
 
-    <RadioGroup
+    <com.example.alexsteen.tipcalculator.ToggleButtonGroupTableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Tip"
         android:checkedButton="@+id/percent15"
         android:id="@+id/tipGroup">
 
-    <LinearLayout
+    <TableRow
         android:layout_width="350dp"
+        android:layout_marginLeft="52dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/Tip"
         android:gravity="center"
@@ -197,13 +198,14 @@
             android:id="@+id/percent18"
             android:onClick="onRBClick"
             android:text="18%"/>
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/Tip"
         android:gravity="center"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="10dp">
         <RadioButton
             android:layout_width="wrap_content"
@@ -226,8 +228,8 @@
             android:layout_width="25dp"
             android:layout_height="35dp"
             android:textSize="12dp" />
-    </LinearLayout>
-    </RadioGroup>
+    </TableRow>
+    </com.example.alexsteen.tipcalculator.ToggleButtonGroupTableLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"

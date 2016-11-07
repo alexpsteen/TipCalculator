@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -40,7 +42,7 @@ public class CalcActivity extends AppCompatActivity {
         currDate.setText(dateFormat.format(date));
 
 
-        EditText subTotalField = (EditText) findViewById(R.id.subtotalAmt);
+        final EditText subTotalField = (EditText) findViewById(R.id.subtotalAmt);
         subTotalField.setText("10.00");
         subTotal = 10;
         subTotalField.addTextChangedListener(new TextWatcher() {
@@ -48,6 +50,9 @@ public class CalcActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().length() <= 1) {
+                    subTotalField.setText(".00");
+                }
                 subTotal = Double.valueOf(s.toString());
                 recalculate();
             }
@@ -56,14 +61,17 @@ public class CalcActivity extends AppCompatActivity {
         });
 
 
-        EditText taxField = (EditText) findViewById(R.id.taxAmt);
-        taxField.setText("7");
+        final EditText taxField = (EditText) findViewById(R.id.taxAmt);
+        taxField.setText("7.0");
         tax = 7;
         taxField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().length() <= 1) {
+                    taxField.setText(".0");
+                }
                 tax = Double.valueOf(s.toString());
                 recalculate();
             }
@@ -73,48 +81,73 @@ public class CalcActivity extends AppCompatActivity {
 
 
         tip = 15.0;
+
+//        p12.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                tip = 12;recalculate();
+//            }
+//        });
+//        p15.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                tip = 15;recalculate();
+//            }
+//        });
+        p12.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tip = 12;recalculate();
+                return false;
+            }
+        });
+        p15.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tip = 15;recalculate();
+                return false;
+            }
+        });
+        p18.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tip = 18;recalculate();
+                return false;
+            }
+        });
+        p20.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tip = 20;recalculate();
+                return false;
+            }
+        });
+
+//        p12.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {tax = 12;recalculate();}});
+//        p15.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {tax = 15;recalculate();}});
+//        p18.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {tax = 18;recalculate();}});
+//        p20.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {tax = 20;recalculate();}});
+//        pCust.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {tax = 12;recalculate();}});
+
         recalculate();
     }
 
-    public void onRBClick(View v) {
-        boolean clicked = ((RadioButton) v).isChecked();
-
-        switch (v.getId()) {
-            case R.id.percent12:
-                if (clicked) {
-                    tip = 12;
-                    recalculate();
-                }
-                break;
-            case R.id.percent15:
-                if (clicked) {
-                    tip = 15;
-                    recalculate();
-                }
-                break;
-            case R.id.percent18:
-                if (clicked) {
-                    tip = 18;
-                    recalculate();
-                }
-                break;
-            case R.id.percent20:
-                if (clicked) {
-                    tip = 20;
-                    recalculate();
-                }
-                break;
-            case R.id.percentCust:
-                if (clicked) {
-                    //TODO
-                }
-                break;
-        }
+    public void onRBClick() {
 
     }
 
     public void recalculate() {
-        double taxAmount = ((double)((int) (tip * subTotal))) / 100;
+        double taxAmount = ((double)((int) (tax * subTotal))) / 100;
         double tipAmount = ((double)((int) (tip * subTotal))) / 100;
 
         EditText tipAmountField = (EditText) findViewById(R.id.tipTotalField);
