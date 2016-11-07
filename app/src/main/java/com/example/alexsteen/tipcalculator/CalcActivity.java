@@ -83,38 +83,23 @@ public class CalcActivity extends AppCompatActivity {
 
         p12.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                tip = 12;recalculate();
-                return false;
-            }
+            public boolean onTouch(View v, MotionEvent event) {tip = 12;recalculate();return false;}
         });
         p15.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                tip = 15;recalculate();
-                return false;
-            }
+            public boolean onTouch(View v, MotionEvent event) {tip = 15;recalculate();return false;}
         });
         p18.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                tip = 18;recalculate();
-                return false;
-            }
+            public boolean onTouch(View v, MotionEvent event) {tip = 18;recalculate();return false;}
         });
         p20.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                tip = 20;recalculate();
-                return false;
-            }
+            public boolean onTouch(View v, MotionEvent event) {tip = 20;recalculate();return false;}
         });
         pCust.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                tip = 12;recalculate();
-                return false;
-            }
+            public boolean onTouch(View v, MotionEvent event) {tip = 12;recalculate();return false;}
         });
 
         recalculate();

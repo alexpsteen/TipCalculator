@@ -225,9 +225,11 @@
             android:onClick="onRBClick"
             android:text="Custom:"/>
         <EditText
-            android:layout_width="25dp"
+            android:layout_width="10dp"
             android:layout_height="35dp"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:id="@+id/customTip"
+            android:text="22"/>
     </TableRow>
     </com.example.alexsteen.tipcalculator.ToggleButtonGroupTableLayout>
 
